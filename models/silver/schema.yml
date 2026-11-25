@@ -1,0 +1,32 @@
+version: 2
+sources:
+    - name: source
+      database: WALMART_DB
+      schema: BRONZE
+      tables:
+        - name: DEPARTMENTS_COPY
+          description: "Raw table for the departments.csv file."
+        - name: FACT_COPY
+          description: "Raw table for the facts.csv file."
+        - name: STORES_COPY
+          description: "Raw table for the stores.csv file."
+    - name: transform
+      database: WALMART_DB
+      schema: SILVER
+      tables:
+        - name: DEPARTMENTS_TRANSFORM
+          description: "Transformed table for the departments.csv file."
+        - name: FACT_TRANSFORM
+          description: "Transformed table for the facts.csv file."
+        - name: STORES_TRANSFORM
+          description: "Transformed table for the stores.csv file."
+    - name: load
+      database: WALMART_DB
+      schema: GOLD
+      tables:
+        - name: DATE_DIM
+          description: "Gold layer Walmart Date dim table."
+        - name: FACT
+          description: "Gold layer Walmart fact table."
+        - name: STORE_DIM
+          description: "Gold layer Walmart Store dim table."
